@@ -37,6 +37,8 @@ terraform state list / ver recursos usados
 
 Infraestructura
 
+├──
+
 ├── LAB
     ├── BASE
         ├── Network
