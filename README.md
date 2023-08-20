@@ -41,11 +41,9 @@ Infraestructura
         ├── Network
             ├── vpc
                 ├── Subnet
-
         ├── Storage
             ├── S3
             ├── DynamoDB
-
     ├── SERVICES
         ├──WEBSITE
     ├── SHARED
