@@ -36,7 +36,6 @@ terraform state list / ver recursos usados
 ## Sistema BETA de ficheros
 
 Tf-Raiz
-    ├── modules
     ├── LAB
         ├── BASE
             ├── Network
