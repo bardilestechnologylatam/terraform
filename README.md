@@ -35,7 +35,7 @@ terraform state list / ver recursos usados
 
 ## Sistema BETA de ficheros
 
-Tf-Raiz
+Infraestructura
 ├── LAB
     ├── BASE
         ├── Network
