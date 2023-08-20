@@ -28,15 +28,12 @@
 
 ### Comandos utiles
 
-terraform fmt / comprobar formato de ficheros coherentes
-terraform validate / validar configuraciones sinteticas
-terraform state / para ver stados de administracion. 
-terraform state list / ver recursos usados
+- terraform fmt / comprobar formato de ficheros coherentes
+- terraform validate / validar configuraciones sinteticas
+- terraform state / para ver stados de administracion. 
+- terraform state list / ver recursos usados
 
-## Sistema BETA de ficheros
-
-Infraestructura
-
+## Sistema BETA de ficheros por ambientes
 ├── LAB
 
     ├── BASE
