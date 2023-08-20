@@ -36,19 +36,19 @@ terraform state list / ver recursos usados
 ## Sistema BETA de ficheros
 
 Tf-Raiz
-    ├── LAB
-        ├── BASE
-            ├── Network
-                ├── vpc
-                    ├── Subnet
+├── LAB
+    ├── BASE
+        ├── Network
+            ├── vpc
+                ├── Subnet
 
-            ├── Storage
-                ├── S3
-                ├── DynamoDB
+        ├── Storage
+            ├── S3
+            ├── DynamoDB
 
-        ├── SERVICES
-            ├──WEBSITE
-        ├── SHARED
-            ├── JENKINS
-            ├── SONAR
-            ├── NEXUS
+    ├── SERVICES
+        ├──WEBSITE
+    ├── SHARED
+        ├── JENKINS
+        ├── SONAR
+        ├── NEXUS
