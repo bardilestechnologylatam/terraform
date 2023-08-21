@@ -1,4 +1,4 @@
-resource "aws_instance" "example_instance_amazon_linux" {
+resource "aws_instance" "devopstools" {
   ami           = "ami-0ccabb5f82d4c9af5"
   instance_type = "t2.micro"
   subnet_id     = "subnet-d30219bb"

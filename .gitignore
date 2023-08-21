@@ -1,0 +1,17 @@
+# Terraform configuration files
+**/*.tfstate
+**/*.tfstate.*.backup
+**/.terraform
+
+# Crash log files
+crash.log
+
+# Exclude sensitive variables file
+*.auto.tfvars
+
+# Exclude any generated plans
+*.tfplan
+*.plan
+
+# Ignore .terraform.lock.hcl (Terraform 0.15+)
+.terraform.lock.hcl
