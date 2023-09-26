@@ -47,4 +47,3 @@ resource "aws_subnet" "Subnet_LAB04" {
     Project     = "LAB"
   }
 }
-

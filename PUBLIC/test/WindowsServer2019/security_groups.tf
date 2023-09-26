@@ -1,5 +1,5 @@
-resource "aws_security_group" "instance_sg_devopstools" {
-  name_prefix = "instance_sg_devopstools"
+resource "aws_security_group" "sg_windowsServer2019" {
+  name_prefix = "sg_windowsServer2019"
 
   // Regla para permitir tráfico HTTP en el puerto 9090 (nginx)
   ingress {
@@ -15,11 +15,19 @@ resource "aws_security_group" "instance_sg_devopstools" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
-  // Regla para permitir tráfico HTTP en el puerto 5000 (Jenkins)
+
   ingress {
-    from_port   = 5000
-    to_port     = 5000
+    from_port   = 8081
+    to_port     = 8081
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  
+  // RDP
+  ingress {
+    from_port   = 3389
+    to_port     = 3389
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -34,8 +42,8 @@ resource "aws_security_group" "instance_sg_devopstools" {
 
   // Regla para permitir tráfico en el puerto 8200 (Vault)
   ingress {
-    from_port   = 8200
-    to_port     = 8200
+    from_port   = 9090
+    to_port     = 9090
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -47,6 +55,5 @@ resource "aws_security_group" "instance_sg_devopstools" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
 
 }
