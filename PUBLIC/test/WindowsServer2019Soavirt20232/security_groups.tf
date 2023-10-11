@@ -1,5 +1,5 @@
-resource "aws_security_group" "sg_windowsServer2022" {
-  name_prefix = "sg_windowsServer2022"
+resource "aws_security_group" "sg_windowsServer2019" {
+  name_prefix = "sg_windowsServer2019"
 
   // Regla para permitir tráfico HTTP en el puerto 9090 (nginx)
   ingress {
@@ -32,7 +32,7 @@ resource "aws_security_group" "sg_windowsServer2022" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  // Regla para permitir tráfico en el puerto 9000 (SonarQube)
+  
   ingress {
     from_port   = 9000
     to_port     = 9000
@@ -40,10 +40,24 @@ resource "aws_security_group" "sg_windowsServer2022" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  // Regla para permitir tráfico en el puerto 8200 (Vault)
   ingress {
     from_port   = 9090
     to_port     = 9090
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 9080
+    to_port     = 9080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

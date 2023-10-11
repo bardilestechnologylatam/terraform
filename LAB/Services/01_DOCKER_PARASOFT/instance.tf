@@ -6,7 +6,7 @@ resource "aws_instance" "docker_parasoft" {
   key_name = "docker" // para key-par generado
   
   tags = {
-    Name        = "02_docker_parasoft"
+    Name        = "01_docker_parasoft"
     Environment = var.environment
     Project     = var.project
     AutoShutdown = "true"

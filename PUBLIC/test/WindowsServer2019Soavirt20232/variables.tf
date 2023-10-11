@@ -4,6 +4,6 @@ variable "environment" {
 }
 
 variable "project" {
-  description = "Selenic en windows server para ami"
-  default     = "01-WindowsServer2019"
+  description = "Para soavirt 2023.2 "
+  default     = "01-WindowsServer2019 "
 }

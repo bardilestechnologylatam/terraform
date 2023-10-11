@@ -1,0 +1,15 @@
+{   
+    "public":{
+        "redhat9hvM": "ami-02b8534ff4b424939",
+        "linux3": "ami-036f5574583e16426",
+        "winserver2019" : "ami-00e325d65ec41e557",
+        "ubuntu20.04": "ami-0430580de6244e02e",
+        "winserver2022": {"ami-060b1c20c93e475fd": "01-windowsServer2022"} ,
+        "linux2":"ami-0aec300fa613b1c92",
+        "win2019": "ami-0a1a6272c3e138311"
+    },
+    "private":{
+        "JENKINS_LINUX3":"ami-07fce32774f47efc0" ,
+        "CTP_SOAVIRT_DATAREPO_2023_1": "ami-09db042ae38815824"
+    } 
+}   

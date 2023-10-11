@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg_redhat9" {
-  name_prefix = "sg_windowsServer2019"
+  name_prefix = "sg_redhat9"
 
   // Regla para permitir tráfico HTTP
   ingress {
@@ -16,7 +16,6 @@ resource "aws_security_group" "sg_redhat9" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   
-  
   // SSH
   ingress {
     from_port   = 22
@@ -25,7 +24,7 @@ resource "aws_security_group" "sg_redhat9" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  // Regla para permitir tráfico en el puerto 9000
+  // Regla para permitir tráfico herramientas parasoft
   ingress {
     from_port   = 9000
     to_port     = 9000
@@ -33,6 +32,40 @@ resource "aws_security_group" "sg_redhat9" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 9080
+    to_port     = 9080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 7744
+    to_port     = 7744
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 2424
+    to_port     = 2424
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   // REGLAS DE SALIDA para todos
   egress {
@@ -41,5 +74,4 @@ resource "aws_security_group" "sg_redhat9" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
 }
