@@ -1,5 +1,46 @@
-resource "aws_security_group" "sg_ctp_soavirt_ami" {
-  name_prefix = "sg_ctp_soavirt_ami"
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.13.0"
+    }
+  }
+}
+  
+provider "aws" {
+  region = "us-east-2"
+}
+
+resource "aws_instance" "aws_instance" {
+  ami           = "ami-0bf7a5babf27e3031" 
+  instance_type = "t2.2xlarge"
+  subnet_id     = "subnet-d30219bb"
+
+  key_name = "01-windowsServer2019" // para key-par generado
+  
+  tags = {
+    Name        = "SELENIC_IJ_SOATEST_LOADTEST_LTC"
+    Environment = var.environment
+    Project     = var.project
+    AutoShutdown = "true"
+  }
+
+  vpc_security_group_ids = [aws_security_group.sg_soavirt20232.id]
+}
+
+
+variable "environment" {
+  description = "KIT BASE SOAVIRT 2023.2"
+  default     = "SOAVIRT 2023.2"
+}
+
+variable "project" {
+  description = "KIT BASE AUTOMATIZACION"
+  default     = "SOAVIRT 2023.2"
+}
+
+resource "aws_security_group" "sg_soavirt20232" {
+  name_prefix = "sg_soavirt20232"
 
   // Regla basicas 
   ingress {
@@ -15,6 +56,14 @@ resource "aws_security_group" "sg_ctp_soavirt_ami" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    from_port   = 3389
+    to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
 
   ingress {
     from_port   = 8080
@@ -77,20 +126,6 @@ resource "aws_security_group" "sg_ctp_soavirt_ami" {
   ingress {
     from_port   = 2424
     to_port     = 2424
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 5000
-    to_port     = 5000
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 5000
-    to_port     = 5000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

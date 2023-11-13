@@ -52,3 +52,6 @@
         ├── JENKINS
         ├── SONAR
         ├── NEXUS
+    
+    ├── Templates
+        ├── AMI'S

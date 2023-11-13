@@ -1,6 +1,6 @@
 resource "aws_instance" "linux2_pruebas" {
-  ami           = "ami-0aec300fa613b1c92"
-  instance_type = "t2.2xlarge"
+  ami           = "ami-01f48e1e4b60cb973"
+  instance_type = "t2.large"
   subnet_id     = "subnet-d30219bb"
 
   key_name = "linux2" // para key-par generado

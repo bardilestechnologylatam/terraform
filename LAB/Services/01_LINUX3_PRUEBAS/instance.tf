@@ -3,7 +3,7 @@ resource "aws_instance" "instance_linux3" {
   instance_type = "t2.2xlarge"
   subnet_id     = "subnet-d30219bb"
 
-  key_name = "linux2" // para key-par generado
+  key_name = "linux2" // para key-par generado ESTABA CON LINUX2 ANTES
   
   tags = {
     Name        = "Linux 3 para pruebas "

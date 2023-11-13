@@ -1,0 +1,33 @@
+Instaladores: 
+En instancias aws debemos importar amazon linux para el jdk 11:
+wget https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz
+nano ~/.bashrc
+export JAVA_HOME=/opt/parasoft/amazon-corretto-11.0.20.9.1-linux-x64
+export PATH=$JAVA_HOME/bin:$PATH
+source ~/.bashrc
+
+Levantamiento de apache para linux:
+@reboot /opt/start_tomcat.sh
+export JAVA_HOME="/opt/parasoft20231/amazon-corretto-11.0.20.9.1-linux-x64"
+#!/bin/bash
+export CATALINA_HOME="/opt/parasoft20231/apache-tomcat-9.0.75"
+/opt/parasoft20231/apache-tomcat-9.0.75/bin/catalina.sh start
+
+
+Instalacion de crotab REDHAT:
+yum install cronie -y
+systemctl enable crond.service
+
+
+Añadir espacio a volumen:
+
+resource "aws_ebs_volume" "volumen_adicional" {
+  size = 20 # Tamaño del disco adicional en gibibytes
+  availability_zone = "us-east-2a" # Asegúrate de que coincida con la zona de tu instancia
+}
+
+resource "aws_volume_attachment" "adjunto" {
+  device_name = "/dev/sdf"
+  instance_id = aws_instance.windows_instance.id // modificar
+  volume_id   = aws_ebs_volume.volumen_adicional.id
+}

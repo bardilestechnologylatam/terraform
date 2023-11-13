@@ -1,7 +1,7 @@
-resource "aws_security_group" "sg_ubuntu" {
-  name_prefix = "sg_ubuntu"
+resource "aws_security_group" "sg_selenic_win19" {
+  name_prefix = "sg_selenic_win19"
 
-  // Regla para permitir tráfico HTTP
+  // Regla basicas 
   ingress {
     from_port   = 80
     to_port     = 80
@@ -10,13 +10,49 @@ resource "aws_security_group" "sg_ubuntu" {
   }
 
   ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 3389
+    to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+  ingress {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
-  // SSH
+
+  ingress {
+    from_port   = 8005
+    to_port     = 8005
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+  ingress {
+    from_port   = 8443
+    to_port     = 8443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 8090
+    to_port     = 8090
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+ 
   ingress {
     from_port   = 22
     to_port     = 22
@@ -49,20 +85,6 @@ resource "aws_security_group" "sg_ubuntu" {
   ingress {
     from_port   = 2424
     to_port     = 2424
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 5000
-    to_port     = 5000
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 5000
-    to_port     = 5000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
